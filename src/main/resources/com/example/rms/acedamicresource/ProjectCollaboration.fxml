@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="473.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.collaborateResourceController">
+    <children>
+
+        <!-- Main Content -->
+        <Pane layoutY="52.0" prefHeight="421.0" prefWidth="651.0">
+            <children>
+                <Pane layoutX="-3.0" layoutY="-20.0" prefHeight="443.0" prefWidth="672.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000);">
+                    <children>
+                        <!-- Course Name TextField -->
+                        <TextField fx:id="partnerName" layoutX="28.0" layoutY="60.0" onAction="#couseAction" prefWidth="200.0" promptText="Enter Name of Partner" style="-fx-background-radius: 20px; -fx-prompt-text-fill: #95a5a6;" styleClass="button" stylesheets="@styles2.css" />
+
+                        <!-- Course Name Label -->
+                        <Label fx:id="searchLabel" layoutX="28.0" layoutY="25.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 18px; -fx-text-fill: #f5f5f5;" text="Potential Partner">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Label>
+                  <Pane fx:id="pane1" layoutX="372.0" layoutY="6.0" prefHeight="437.0" prefWidth="300.0" styleClass="pane1" stylesheets="@styles2.css">
+                     <children>
+                         <Button layoutX="68.0" layoutY="113.0" mnemonicParsing="false" text="Upload Material" />
+      
+                              <!-- Make Contribution Button -->
+                              <Button fx:id="makeCollaboration" layoutX="137.0" layoutY="379.0" mnemonicParsing="false" onAction="#makeContributionAction" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" stylesheets="@styles2.css" text="Make Collaboration">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                              </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+
+                        <!-- Material Type ComboBox -->
+                        <ComboBox fx:id="dropDown" layoutX="441.0" layoutY="60.0" onAction="#dropDownAction" prefHeight="27.0" prefWidth="149.0" promptText="Choose Material Type" styleClass="combo-box" visibleRowCount="6">
+                     <effect>
+                        <Glow />
+                     </effect></ComboBox>
+
+                        <!-- Material Type Label -->
+                        <Label fx:id="searchLabel1" layoutX="441.0" layoutY="25.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 18px; -fx-text-fill: #f5f5f5;" text="Material Type" />
+                  <Text fill="WHITE" layoutX="33.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses" wrappingWidth="94.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                    </children>
+                </Pane>
+
+                <!-- Search Icon (You can replace this with your actual search icon) -->
+                <Label layoutX="10.0" layoutY="22.0" styleClass="search-icon" />
+
+                <!-- List View -->
+                <ListView fx:id="listView" layoutX="30.0" layoutY="127.0" prefHeight="263.0" prefWidth="300.0" style="-fx-background-color: #ecf0f1; -fx-background-radius: 10px;" stylesheets="@styles2.css" />
+            </children>
+        </Pane>
+        <!-- Top Bar -->
+        <Pane prefHeight="51.0" prefWidth="669.0" style="-fx-background-color: #000000;">
+            <children>
+                <Label layoutX="14.0" layoutY="8.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 24px; -fx-text-fill: #ecf0f1;" text="Collaborate Project" />
+            <Button fx:id="homeButton" layoutX="565.0" layoutY="7.0" mnemonicParsing="false" onAction="#homeButtonAction" styleClass="homebutton" stylesheets="@styles2.css" text="Home" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="W_RESIZE" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

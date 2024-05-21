@@ -1,0 +1,16 @@
+.root{
+
+}
+
+.button-default {
+    -fx-background-color: linear-gradient(to bottom, #003366, #000000);
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 15;
+}
+
+/* Define button hover effect */
+.button-default:hover {
+    -fx-background-color: linear-gradient(to bottom, #004080, #000000);
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.adminMenu_Controller">
+    <center>
+        <AnchorPane prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom,  #003366, #000000);" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="680.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #000000, #003366);">
+                    <children>
+                        <Label layoutX="42.0" layoutY="259.0" prefHeight="70.0" prefWidth="516.0" text="Welcome Admin 💻" textFill="WHITE">
+                            <font>
+                                <Font name="Berlin Sans FB Demi Bold" size="52.0" />
+                            </font>
+                        </Label>
+                        <Text fill="WHITE" layoutX="80.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage your resources and users effectively" textAlignment="CENTER" wrappingWidth="440.9999656677246">
+                            <font>
+                                <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <Button fx:id="manageResourcesButton" layoutX="676.0" layoutY="202.0" mnemonicParsing="false" onAction="#manageResources" prefHeight="50.0" prefWidth="222.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" text="Manage Resources">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="reviewContributionsButton" layoutX="676.0" layoutY="290.0" mnemonicParsing="false" onAction="#reviewContributions" prefHeight="50.0" prefWidth="224.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" text="Review Contributions">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="userManagementButton" layoutX="806.0" layoutY="393.0" mnemonicParsing="false" onAction="#userManagement" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" text="User Management">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="flaggedContentButton" layoutX="945.0" layoutY="202.0" mnemonicParsing="false" onAction="#flaggedContent" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" text="Flagged Content">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="reportsButton" layoutX="945.0" layoutY="290.0" mnemonicParsing="false" onAction="#reports" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" text="Reports">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

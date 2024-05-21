@@ -1,0 +1,141 @@
+/*!* Style for AnchorPane *!*/
+/*.anchor-pane {*/
+/*    -fx-background-color: #f2f2f2;*/
+/*}*/
+
+/*!* Style for top bar *!*/
+/*.top-bar {*/
+/*    -fx-background-color: linear-gradient(to bottom, #003366, #000000);*/
+/*}*/
+
+/*!* Style for top bar label *!*/
+/*.top-bar-label {*/
+/*    -fx-font-family: 'Helvetica';*/
+/*    -fx-font-size: 24px;*/
+/*    -fx-text-fill: #ecf0f1;*/
+/*}*/
+
+/*!* Style for main content pane *!*/
+/*.main-content-pane {*/
+/*    -fx-background-color: #f2f2f2;*/
+/*}*/
+
+/*!* Style for inner pane *!*/
+/*.inner-pane {*/
+/*    -fx-background-color: linear-gradient(to bottom, #003366, #000000);*/
+/*}*/
+
+/*!* Style for labels *!*/
+/*.label {*/
+/*    -fx-font-family: 'Helvetica';*/
+/*    -fx-font-size: 18px;*/
+/*    -fx-text-fill: #f5f5f5;*/
+/*}*/
+
+/*!* Style for text fields *!*/
+/*.text-field {*/
+/*    -fx-background-radius: 20px;*/
+/*    -fx-prompt-text-fill: #95a5a6;*/
+/*}*/
+
+/*!* Style for combo box *!*/
+/*.combo-box {*/
+/*    -fx-pref-width: 161px;*/
+/*    -fx-prompt-text-fill: #95a5a6;*/
+/*}*/
+
+/* Style for buttons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #003366, #000000);
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 15px;
+}
+
+/* Hover effect for buttons */
+
+.button:hover{
+    -fx-background-color: #000000;
+
+}
+
+.pane1 {
+    -fx-background-color: linear-gradient(to bottom, #000000, #808080); /* Gradient colors */
+}
+
+.homebutton{
+    -fx-background-color:  #ffffff;
+    -fx-text-fill: black;
+}
+
+/* Styling for TableView */
+.table-view {
+    -fx-background-color: #f9f9f9; /* Background color of the table */
+}
+
+/* Styling for table rows */
+.table-row-cell {
+    -fx-background-color: #ffffff; /* Background color of each row */
+}
+
+/* Styling for alternating rows */
+.table-row-cell:odd {
+    -fx-background-color: #f0f0f0; /* Background color of alternating rows */
+}
+
+/* Styling for column headers */
+.table-column {
+    -fx-font-weight: bold; /* Bold font for column headers */
+    -fx-alignment: center-left; /* Align text to the center left */
+    -fx-padding: 5px; /* Add padding to column headers */
+}
+
+/* Styling for selected rows */
+.table-row-cell:selected {
+    -fx-background-color: #3498db; /* Background color of selected rows */
+    -fx-text-fill: white; /* Text color of selected rows */
+}
+
+
+.label {
+    -fx-background-color: linear-gradient(to bottom, #003366, #808080);
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+}
+
+.label:hover{
+    -fx-background-color: #000000;
+}
+
+/* Styles for WebView */
+.web-view {
+    -fx-background-color: #f9f9f9; /* Background color */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    line-height: 1.6; /* Line height */
+    margin: 20px; /* Margin */
+}
+
+
+/* Styles for ComboBox */
+.combo-box {
+    -fx-font-family: Arial, sans-serif; /* Font family */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px; /* Padding */
+    -fx-background-color: #f9f9f9; /* Background color */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 4px; /* Border radius */
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #f9f9f9; /* Background color of the arrow button */
+    -fx-shape: null; /* Remove the default arrow shape */
+}
+
+.combo-box .arrow-button:hover {
+    -fx-background-color: #eeeeee; /* Hover background color of the arrow button */
+}

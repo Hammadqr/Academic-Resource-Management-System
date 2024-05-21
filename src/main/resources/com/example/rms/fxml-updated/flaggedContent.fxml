@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.FlaggedContentController">
+    <children>
+
+        <!-- Main Content -->
+        <Pane layoutY="52.0" prefHeight="421.0" prefWidth="651.0">
+            <children>
+                <Pane layoutX="-3.0" layoutY="-52.0" prefHeight="704.0" prefWidth="1261.0" style="-fx-background-color: linear-gradient(to bottom, #3b6ea6, #609ec8);">
+                    <children>
+                <AnchorPane fx:id="removeFlag" layoutX="84.0" layoutY="52.0" minHeight="0.0" minWidth="0.0" prefHeight="641.0" prefWidth="1082.0">
+                     <children>
+                        <ScrollPane fx:id="scrollPane" layoutX="234.0" layoutY="443.0" prefHeight="159.0" prefWidth="304.0">
+                           <content>
+                              <TextArea fx:id="flaggingUsers" prefHeight="158.0" prefWidth="305.0" promptText="Flagged by Users:" />
+                           </content>
+                        </ScrollPane>
+                              <TableView fx:id="table" layoutX="140.0" layoutY="56.0" prefHeight="326.0" prefWidth="778.0" stylesheets="@styles2.css">
+                                  <columns>
+                                      <TableColumn prefWidth="165.0" text="Publisher" />
+                                      <TableColumn prefWidth="125.0" text="Contributor" />
+                                      <TableColumn prefWidth="114.0" text="Upload Date" />
+                                      <TableColumn minWidth="0.0" prefWidth="145.0" text="Rating" />
+                                      <TableColumn prefWidth="158.0" text="Times Flagged" />
+                                  </columns>
+                              </TableView>
+                              <Button fx:id="removeFavourite" layoutX="780.0" layoutY="503.0" mnemonicParsing="false" onAction="#makeContributionAction" prefHeight="37.0" prefWidth="152.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" styleClass="mousemoved" stylesheets="@styles2.css" text="Remove flag">
+                                  <font>
+                                      <Font size="16.0" />
+                                  </font>
+                              </Button>
+                     </children></AnchorPane>
+                    </children>
+                </Pane>
+
+                <!-- Search Icon (You can replace this with your actual search icon) -->
+                <Label layoutX="10.0" layoutY="22.0" styleClass="search-icon" />
+            </children>
+        </Pane>
+        <!-- Top Bar -->
+        <Pane prefHeight="51.0" prefWidth="1253.0" style="-fx-background-color: #000000;">
+            <children>
+                <Label layoutX="20.0" layoutY="14.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 24px; -fx-text-fill: #ecf0f1;" text="Flagged Content" />
+                <Button fx:id="homeButton" layoutX="1057.0" layoutY="12.0" mnemonicParsing="false" onAction="#homeButtonAction" styleClass="homebutton" stylesheets="@styles2.css" text="Home" textOverrun="WORD_ELLIPSIS">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="W_RESIZE" />
+                    </cursor>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

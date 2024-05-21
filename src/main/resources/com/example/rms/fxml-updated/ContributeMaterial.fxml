@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="734.0" prefWidth="1325.0" style="-fx-background-color: linear-gradient(to bottom, #3b6ea6, #609ec8);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.contributeResourceController">
+    <children>
+        <!-- Top Bar -->
+        <Pane prefHeight="51.0" prefWidth="1325.0" style="-fx-background-color: #000000;">
+            <children>
+                <Label layoutX="20.0" layoutY="14.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 24px; -fx-text-fill: #ecf0f1;" text="Contribute Resources" />
+            <Button fx:id="homeButton" layoutX="1021.0" layoutY="12.0" mnemonicParsing="false" onAction="#homeButtonAction" prefHeight="27.0" prefWidth="135.0" styleClass="homebutton" stylesheets="@styles2.css" text="Home" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="W_RESIZE" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            </children>
+        </Pane>
+          <Pane layoutX="164.0" layoutY="84.0" prefHeight="650.0" prefWidth="953.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000);">
+              <children>
+                  <!-- Course Name TextField -->
+                  <TextField fx:id="courseName" layoutX="28.0" layoutY="60.0" onAction="#couseAction" prefWidth="200.0" promptText="Course Name To Contribute" style="-fx-background-radius: 20px; -fx-prompt-text-fill: #95a5a6;" styleClass="button" stylesheets="@styles2.css" />
+
+                                                                        <!-- Course Name Label -->
+                  <Label fx:id="searchLabel" layoutX="28.0" layoutY="25.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 18px; -fx-text-fill: #f5f5f5;" text="Course" />
+
+                                                                                    <!-- Material Type Label -->
+                  <Label fx:id="searchLabel1" layoutX="598.0" layoutY="87.0" style="-fx-font-family: 'Helvetica'; -fx-font-size: 18px; -fx-text-fill: #f5f5f5;" text="Material Type" />
+
+                                                                              <!-- Make Contribution Button -->
+                  <Button fx:id="makeContribution" layoutX="549.0" layoutY="530.0" mnemonicParsing="false" onAction="#makeContributionAction" prefHeight="32.0" prefWidth="145.0" style="-fx-background-color: linear-gradient(to bottom, #003366, #000000); -fx-background-radius: 15; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 15;" styleClass="mousemoved" stylesheets="@styles2.css" text="Make Contribution">
+                      <font>
+                          <Font size="14.0" />
+                      </font>
+                  </Button>
+                  <Button fx:id="uploadButton" layoutX="590.0" layoutY="478.0" mnemonicParsing="false" onAction="#uploadButtonAction" stylesheets="@styles2.css" text="Upload Material" />
+
+                                                                                          <!-- Material Type ComboBox -->
+                  <ComboBox fx:id="dropDown" layoutX="598.0" layoutY="122.0" onAction="#dropDownAction" prefHeight="25.0" prefWidth="161.0" promptText="Choose Material Type" styleClass="arrow-button" stylesheets="@styles1.css" visibleRowCount="6" />
+
+                <!-- List View -->
+                <ListView fx:id="listView" layoutX="101.0" layoutY="128.0" prefHeight="457.0" prefWidth="396.0" style="-fx-background-color: #ecf0f1; -fx-background-radius: 10px;" />
+              </children>
+          </Pane>
+    </children>
+</AnchorPane>
