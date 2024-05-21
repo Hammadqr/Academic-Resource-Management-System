@@ -70,14 +70,7 @@ public class test extends Application {
         } else {
             System.out.println("No file selected.");
         }
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Choose File");
-//        File selectedFile = fileChooser.showOpenDialog(chooseFileButton.getScene().getWindow());
-//        System.out.println("File Uploading");
-//        if (selectedFile != null) {
-//
-//            //uploadFile(selectedFile);
-//        }
+
     }
 
 
@@ -106,4 +99,5 @@ public class test extends Application {
     public void start(Stage primaryStage) throws Exception {
 
     }
+
 }

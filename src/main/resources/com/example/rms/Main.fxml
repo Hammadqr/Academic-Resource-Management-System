@@ -7,52 +7,53 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.FrontController">
-   <center>
-      <AnchorPane prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: linear-gradient(to bottom,  #B4E4F6, #3498db) linear-gradient(to bottom,  #B4E4F6, #3498db);" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="AdminLoginButton" defaultButton="true" layoutX="703.0" layoutY="419.0" mnemonicParsing="false" onAction="#LogtheAdmin" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: linear-gradient(to bottom, #010050, #002080); -fx-background-radius: 15; -fx-border-color: white; -fx-border-radius: 13; -fx-border-width: 2;" text="Admin" textAlignment="CENTER" textFill="WHITE">
-               <font>
-   <Font name="Berlin Sans FB Demi Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="CustomerReg" defaultButton="true" layoutX="942.0" layoutY="420.0" mnemonicParsing="false" onAction="#LoginCustomer" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: linear-gradient(to bottom, #010050, #002080); -fx-background-radius: 15; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 13;" text="Customer" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Berlin Sans FB Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label layoutX="714.0" layoutY="547.0" prefHeight="22.0" prefWidth="394.0" text="Click One of the Options Above to Continue. 😊">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Label>
-                 <Pane prefHeight="681.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #010050, #002080);">
-               <children>
-                  <Label layoutX="103.0" layoutY="245.0" prefHeight="82.0" prefWidth="394.0" style="-fx-text-fill: white;" text="Rail Verge🚈" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="70.0" />
-                     </font>
-                  </Label>
-                  <Text fill="WHITE" layoutX="155.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel with Ease &amp; Comfort.">
-                     <font>
-                        <Font name="Berlin Sans FB" size="25.0" />
-                     </font>
-                  </Text>
-               </children></Pane>
-<!--            <ImageView fitHeight="299.0" fitWidth="453.0" layoutX="685.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                 <image>-->
-<!--        <Image url="file:/C:/Users/Hp/Downloads/Train%20Reservation%20System/abc.png" />-->
-<!--    </image>-->
-<!--            </ImageView>-->
-         </children>
-      </AnchorPane>
-   </center>
-               </BorderPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="650.0" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rms.FrontController">
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);" BorderPane.alignment="CENTER">
+            <children>
+                <!-- Title Label -->
+                <Label layoutX="25.0" layoutY="84.0" prefHeight="82.0" prefWidth="600.0" text="Academic Assistant" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Black" size="40.0" />
+                    </font>
+                </Label>
+                <!-- Pane for Login Buttons -->
+                <Pane layoutX="162.0" layoutY="238.0" prefHeight="397.0" prefWidth="681.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                    <children>
+                        <!-- Admin Login Button -->
+                        <Button fx:id="AdminLoginButton" defaultButton="true" layoutX="293.0" layoutY="102.0" mnemonicParsing="false" onAction="#LogtheAdmin" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: linear-gradient(to bottom, #0074b3, #021E2F); -fx-background-radius: 15; -fx-border-color: white; -fx-border-radius: 10; -fx-border-width: 2;" text="Admin" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <!-- Customer Login Button -->
+                        <Button fx:id="CustomerReg" defaultButton="true" layoutX="293.0" layoutY="192.0" mnemonicParsing="false" onAction="#LoginCustomer" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: linear-gradient(to bottom, #0074b3, #021E2F); -fx-background-radius: 15; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 10;" text="Customer" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <!-- Label for Admin Login -->
+                        <Label layoutX="83.0" layoutY="111.0" text="Login as Admin" textFill="#333333">
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <!-- Label for Customer Login -->
+                        <Label layoutX="77.0" layoutY="201.0" text="Login as Student" textFill="#333333">
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

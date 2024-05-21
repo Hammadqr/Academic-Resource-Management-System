@@ -1,11 +1,14 @@
 package com.example.rms;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,7 +28,7 @@ public class DBHandler {
     // JDBC URL, username, and password of MySQL server
     private static final String URL = "jdbc:mysql://localhost:3306/Resource_management_system";
     private static final String USER = "root";
-    private static final String PASSWORD = "1216";
+    private static final String PASSWORD = "galelu007";
 
     // JDBC variables for opening, closing, and managing connection
     private static Connection connection;
@@ -45,7 +48,139 @@ public class DBHandler {
     }
 
 
-        public static boolean isValidEmail(String email) {
+//    public static void FileToMySQL() {
+//
+//        try
+//        {
+//            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+//            File file = new File("C:\\Users\\khahm\\OneDrive\\Desktop\\Ahmad Ali Resume.pdf"); // Change this to your file path
+//
+//            FileInputStream fis = new FileInputStream(file);
+//
+//            String query = "INSERT INTO files (filename, data) VALUES (?, ?)";
+//            PreparedStatement pstmt = conn.prepareStatement(query);
+//            pstmt.setString(1, file.getName());
+//            pstmt.setBinaryStream(2, (InputStream) fis, (int) file.length());
+//            pstmt.executeUpdate();
+//
+//            System.out.println("File inserted successfully into the database.");
+//
+//            pstmt.close();
+//            fis.close();
+//            conn.close();
+//        } catch(
+//        Exception e)
+//
+//        {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    public static void MySQLToFile() {
+//        String filePath = "C:\\Users\\khahm\\OneDrive\\Desktop\\REP Download files\\"; // Change this to your desired path
+//            try {
+//                Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+//
+//                String query = "SELECT filename, data FROM files WHERE id = ?";
+//                PreparedStatement pstmt = conn.prepareStatement(query);
+//                pstmt.setInt(1, 2); // Change 1 to the ID of the file you want to retrieve
+//
+//                ResultSet rs = pstmt.executeQuery();
+//                if (rs.next()) {
+//                    String filename = rs.getString("filename");
+//                    InputStream inputStream = rs.getBinaryStream("data");
+//
+//                    // Create the file at the specified path
+//                    File file = new File(filePath + File.separator + filename);
+//                    FileOutputStream fos = new FileOutputStream(file);
+//
+//                    // Read data from database and write it to file
+//                    byte[] buffer = new byte[1024];
+//                    while (inputStream.read(buffer) > 0) {
+//                        fos.write(buffer);
+//                    }
+//
+//                    System.out.println("File saved successfully to: " + file.getAbsolutePath());
+//
+//                    fos.close();
+//                    inputStream.close();
+//                } else {
+//                    System.out.println("File not found in the database.");
+//                }
+//
+//                pstmt.close();
+//                conn.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+    public static void FileToSQL(String materialType, String course, String filePath) {
+        try {
+            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            File file = new File(filePath);
+
+            FileInputStream fis = new FileInputStream(file);
+
+            String query = "INSERT INTO CourseMaterials (MaterialType, FileName, CourseMaterial, FileData) VALUES (?, ?, ?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, materialType);
+            pstmt.setString(2, file.getName());
+            pstmt.setString(3, course);
+            pstmt.setBinaryStream(4, (InputStream) fis, (int) file.length());
+            pstmt.executeUpdate();
+
+            System.out.println("File inserted successfully into the database.");
+
+            pstmt.close();
+            fis.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void SQLToFile(String materialType, String course, String filePath) {
+        try {
+            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            String query = "SELECT FileName, FileData FROM CourseMaterials WHERE MaterialType = ? AND CourseMaterial = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, materialType);
+            pstmt.setString(2, course);
+
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String filename = rs.getString("FileName");
+                InputStream inputStream = rs.getBinaryStream("FileData");
+
+                // Create the file at the specified path
+                File file = new File(filePath + File.separator + filename);
+                FileOutputStream fos = new FileOutputStream(file);
+
+                // Read data from database and write it to file
+                byte[] buffer = new byte[1024];
+                while (inputStream.read(buffer) > 0) {
+                    fos.write(buffer);
+                }
+
+                System.out.println("File saved successfully to: " + file.getAbsolutePath());
+
+                fos.close();
+                inputStream.close();
+            } else {
+                System.out.println("File not found in the database for the specified material type and course.");
+            }
+
+            pstmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean isValidEmail(String email) {
         // Regular expression to match the given email format
         String regex = "[ipkfIPKF]\\d{6}@nu\\.edu\\.pk";
 
@@ -57,6 +192,22 @@ public class DBHandler {
 
         // Return true if the email matches the pattern, false otherwise
         return matcher.matches();
+    }
+
+    public static boolean checkManagerCredentials(String username, String password) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String query = "SELECT * FROM manager WHERE username = ? AND password = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, username);
+                statement.setString(2, password);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return resultSet.next();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
         // Function to insert user data into the database
         public static void insertUser(String name, String phoneNumber, String emailAddress, String password) {
@@ -144,6 +295,113 @@ public class DBHandler {
         return userExists;
     }
 
+
+    public static boolean checkFileStorage(int fileId, String originalFilePath) {
+        try {
+            // Connect to the database
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            // Prepare the SELECT query
+            String selectQuery = "SELECT FileName, MaterialType, FileData FROM CourseMaterials WHERE MaterialID = ?";
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+
+            // Set the ID parameter
+            statement.setInt(1, fileId);
+
+            // Execute the query
+            ResultSet resultSet = statement.executeQuery();
+
+            // Check if file exists
+            if (resultSet.next()) {
+                String filename = resultSet.getString("FileName");
+                String materialType = resultSet.getString("MaterialType");
+                byte[] fileData = resultSet.getBytes("FileData");
+
+                // Check file metadata
+                if (filename.equals(new File(originalFilePath).getName()) && materialType.equals("Document")) {
+
+                    // Check file data integrity
+                    byte[] originalFileData = Files.readAllBytes(Paths.get(originalFilePath));
+                    if (Arrays.equals(fileData, originalFileData)) {
+                        System.out.println("File storage check passed.");
+                        return true;
+                    } else {
+                        System.out.println("File data does not match.");
+                    }
+                } else {
+                    System.out.println("File metadata does not match.");
+                }
+            } else {
+                System.out.println("File not found in the database.");
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void RetrieveFileFromDatabase() {
+
+        try {
+            // Connect to the database
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            // Prepare the SELECT query
+            String selectQuery = "SELECT FileName, CourseMaterial, FileData FROM CourseMaterials WHERE MaterialID = ?";
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+
+            // Specify the ID of the file you want to retrieve
+            int fileId = 2; // Change this to the ID of the file you want to retrieve
+
+            // Set the ID parameter
+            statement.setInt(1, fileId);
+
+            // Execute the query
+            ResultSet resultSet = statement.executeQuery();
+
+            // Retrieve file data
+            if (resultSet.next()) {
+                String filename = resultSet.getString("FileName");
+                String courseMaterial = resultSet.getString("CourseMaterial");
+                byte[] fileData = resultSet.getBytes("FileData");
+
+                // Write file data to a new file
+                if (fileData != null && fileData.length > 0) {
+                    try (OutputStream outputStream = new FileOutputStream("C:\\Users\\khahm\\OneDrive\\Desktop\\REP Download files\\downloaded_" + filename)) {
+                        outputStream.write(fileData);
+                        System.out.println("File '" + filename + "' downloaded successfully.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("File data is null or empty.");
+                }
+            } else {
+                System.out.println("No file found with the specified ID.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 }
 //public class DBHandler{

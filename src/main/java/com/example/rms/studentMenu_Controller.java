@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -33,42 +34,158 @@ public class studentMenu_Controller {
     private Button downloadExamPapersButton; // Value injected by FXMLLoader
 
     @FXML
-    void browseResourcesAction(ActionEvent event) {
+    void browseResourcesAction(ActionEvent event) throws IOException {
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("browseResource.fxml"));
+            Parent root = loader.load();
 
+            // Get the controller instance
+            BrowseResourceController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Browse Resource");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
     }
 
     @FXML
     void collaborateProjectsAction(ActionEvent event) {
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProjectCollaboration.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+             collaborateResourceController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Collaboration");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
 
     }
 
     @FXML
     void contributeMaterialsAction(ActionEvent event) throws IOException {
-        VBox root = (VBox) FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TestFIleupload.fxml")));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ContributeMaterial.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            contributeResourceController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Contribution");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
     }
 
 
     @FXML
     void downloadExamPapersAction(ActionEvent event) {
 
+        //DBHandler.checkFileStorage(2,"C:\\Program Files\\MySQL\\MySQL Server 8.0\\Uploads\\CPS pre.PNG");
+        //DBHandler.RetrieveFileFromDatabase();
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("browseResource.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            BrowseResourceController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Browse Resource");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
+
     }
 
     @FXML
     void favoritesAction(ActionEvent event) {
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Favourites.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            FavouritesController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Favourites");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
 
     }
 
     @FXML
     void rateReviewAction(ActionEvent event) {
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RateandReview.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            RateandReviewController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Rate and Review");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
 
     }
 
     @FXML
     void requestResourcesAction(ActionEvent event) {
+        try {
+            // Load the FXML file for the new scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RequestResources.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            RequestResourceController controller = loader.getController();
+
+            // Set up the new scene
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Request Resources");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
 
     }
 

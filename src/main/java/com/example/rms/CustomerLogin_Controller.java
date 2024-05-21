@@ -65,8 +65,7 @@ public class CustomerLogin_Controller {
 
         @FXML
         void GoToUserMenu (ActionEvent event) throws IOException {
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!! ");
-//        if(DBHandler.checkUser(getEmail(),getPass())){
+        if(DBHandler.checkUser(getEmail(),getPass())){
             System.out.println("LOGGED IN SUCCESSFULLY");
             BorderPane root = (BorderPane) FXMLLoader.load(this.getClass().getResource("studentMenu.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -75,12 +74,12 @@ public class CustomerLogin_Controller {
             stage.show();
 
         }
-//        else{
-//            System.out.println("Fail to login");
-//
-//        }
-////>>>>>>> f37d637 (Initial Commit By Ahmad Ali)
-//        }
+        else{
+            System.out.println("Fail to login");
+
+        }
+//>>>>>>> f37d637 (Initial Commit By Ahmad Ali)
+        }
 
         @FXML
         void RegisterCustomer1 (ActionEvent event) throws IOException {
